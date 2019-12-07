@@ -51,8 +51,6 @@ namespace InitechAPI
                 var customers = db.GetCollection<Customer>("Customers");
                 customers.EnsureIndex("_id", unique: true);
                 customers.EnsureIndex("agent_id", unique: false);
-                var customer = customers.FindById(9847);
-                var customer2 = customers.Find(Query.EQ("agent_id", 101));
                 Console.WriteLine(customers.FindAll().Count() + " Customers inserted");
             }
         }

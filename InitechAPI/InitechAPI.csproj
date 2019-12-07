@@ -92,7 +92,7 @@
     <Compile Include="BusinessTier\CustomerBusinessLayer.cs" />
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\AgentsController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerDetailController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="DBTier\DBLayer.cs" />
     <Compile Include="DBTier\IDBLayer.cs" />

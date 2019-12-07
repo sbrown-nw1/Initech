@@ -6,17 +6,17 @@ using System.Web.Http;
 
 namespace InitechAPI.Controllers
 {
-    public class CustomerController : ApiController
+    public class CustomerDetailController : ApiController
     {
         [HttpGet]
-        [Route("api/Customers/{page?}/{pageSize?}")]
+        [Route("api/CustomerDetail/{page?}/{pageSize?}")]
         public HttpResponseMessage Get(int page = 1, int pageSize = 2)
         {
             var customerPagedListAPIResult = new CustomerPagedListAPIResult
             {
                 Page = page,
                 PageSize = pageSize,
-                Usage = "HttpGet:~/api/Customers/{page?}/{pageSize?} or {args} can be on querystring, {args?} are optional"
+                Usage = "HttpGet:~/api/CustomerDetail/{page?}/{pageSize?} or {args} can be on querystring, {args?} are optional"
             };
 
             customerPagedListAPIResult.CustomerList = CustomerBusinessLayer.GetCustomers(page, pageSize);
@@ -30,12 +30,12 @@ namespace InitechAPI.Controllers
         }
 
         [HttpPut]
-        [Route("HttpPut:api/Customers/{id}")]
+        [Route("api/CustomerDetail/{id}")]
         public HttpResponseMessage Put(int id, Customer customer)
         {
             var successAPIResult = new SuccessAPIResult()
             {
-                Usage = "HttpPut:~/api/Customers/{id} with Customer json in body"
+                Usage = "HttpPut:~/api/CustomerDetail/{id} with Customer json in body"
             };
 
             successAPIResult.Successful = new DBLayer().UpdateEntity<Customer>(customer, id);
