@@ -1,4 +1,5 @@
 ﻿using LiteDB;
+using Newtonsoft.Json;
 
 namespace InitechAPI.Models
 {
@@ -8,6 +9,7 @@ namespace InitechAPI.Models
         public int Id { get; set; }
 
         [BsonField("agent_id")]
+        [JsonProperty("agent_id")]
         public int AgentId { get; set; }
 
         [BsonField("guid")]
