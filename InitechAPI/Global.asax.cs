@@ -13,12 +13,16 @@ namespace InitechAPI
     {
         protected void Application_Start()
         {
+            var initDB = false;
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             CustomerBusinessLayer.Register(new DBLayer());
             AgentBusinessLayer.Register(new DBLayer());
 
-            if (bool.Parse(ConfigurationManager.AppSettings["InitDB"]))
+            bool.TryParse(ConfigurationManager.AppSettings["InitDB"], out initDB);
+
+            if (initDB)
             {
                 InitDB();
             }
